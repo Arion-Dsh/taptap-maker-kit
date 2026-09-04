@@ -12,11 +12,10 @@
 
 ## 示例项目
 
-### 鸡不可失（`chicken-farm-maker`）
-
-[鸡不可失](https://www.taptap.cn/app/919169) 是 `taptap-maker-kit` 的实际 TapTap Maker 案例。它是一款温馨、治愈的养鸡经营游戏，玩家通过养鸡和售卖鸡蛋逐步成为养鸡大亨。
-
-该案例用于展示本工具包所面向的真实开发场景，包括产品资料与游戏工程分离、Maker API 选型、移动端 UI、云存储边界和运行性能等问题。
+| 游戏 | 玩法定位 | 工程参考重点 |
+| --- | --- | --- |
+| [鸡不可失](https://www.taptap.cn/app/919169) | 温馨治愈的养鸡经营游戏 | 产品资料与游戏工程分离、Maker API、`clientCloud`、移动端 UI 与性能优化 |
+| [鲨鱼！放开我的鱼](https://www.taptap.cn/app/923487) | 多人在线、轻松又紧张的纸艺风钓鱼经营游戏 | 客户端与服务端职责、`serverCloud`、多人状态同步、世界对象分级更新与屏幕内渲染 |
 
 ## 能做什么
 
@@ -35,10 +34,10 @@
 macOS 或 Linux 一行安装：
 
 ```bash
-git clone git@github.com:Arion-Dsh/taptap-maker-kit.git && ./taptap-maker-kit/install.sh
+git clone https://github.com/Arion-Dsh/taptap-maker-kit.git && ./taptap-maker-kit/install.sh
 ```
 
-该命令会克隆仓库，并通过符号链接安装到当前用户的 Codex、Cursor、Claude 和 Gemini skills 目录。需要提前配置 GitHub SSH 访问。
+该命令会克隆仓库，并通过符号链接安装到当前用户的 Codex、Cursor、Claude 和 Gemini skills 目录。
 
 也可以只安装到一个编辑器：
 

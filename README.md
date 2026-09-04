@@ -120,4 +120,4 @@ npx -y @taptap/maker install --ide codex,cursor,claude
 
 本项目采用 [MIT License](LICENSE)。
 
-本项目由个人独立维护，非 TapTap 官方项目。
+本项目由个人维护，非 TapTap 官方项目。

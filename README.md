@@ -31,27 +31,33 @@
 
 ## 安装
 
-Windows、macOS 和 Linux 使用同一条命令安装：
+Windows、macOS 和 Linux 使用相同的安装命令，并可选择以下范围。
+
+### 当前用户公用
+
+安装到当前用户的编辑器 skills 目录，之后该用户的所有项目都可以发现：
 
 ```bash
 npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit
 ```
 
-安装器会把 Skill 复制到当前用户的 Codex、Cursor、Claude 和 Gemini skills 目录，不依赖 Bash 或符号链接。需要 Node.js 18 或更高版本。
+这是默认范围，等同于显式指定 `--scope user`。
 
-也可以只安装到一个编辑器：
+### 当前项目自用
 
-```bash
-npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --editor codex
-```
-
-安装到指定项目：
+在目标项目根目录执行，只安装到该项目的编辑器 skills 目录：
 
 ```bash
 npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --scope project --target .
 ```
 
-安装器默认不会覆盖同名目录。更新已有安装时显式追加 `--force`；运行命令并追加 `--help` 可查看全部参数。
+也可以通过 `--target` 指定其他项目目录，或用 `--editor` 只安装到一个编辑器：
+
+```bash
+npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --editor codex
+```
+
+安装器会把 Skill 复制到相应目录，不依赖 Bash 或符号链接，需要 Node.js 18 或更高版本。默认不会覆盖同名目录；更新已有安装时显式追加 `--force`，追加 `--help` 可查看全部参数。
 
 常见的项目级目录包括：
 
@@ -62,7 +68,7 @@ npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap
 .gemini/skills/taptap-maker-kit/
 ```
 
-不同编辑器的发现目录和 Agent Skills 支持情况可能变化，请以对应编辑器的当前文档为准。建议只维护一份仓库，通过链接接入多个编辑器，避免内容副本发生偏差。
+不同编辑器的发现目录和 Agent Skills 支持情况可能变化，请以对应编辑器的当前文档为准。
 
 ## 使用
 

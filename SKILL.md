@@ -1,6 +1,6 @@
 ---
 name: taptap-maker-kit
-description: 仅用于已绑定的 TapTap Maker 项目，或用户明确说明当前或目标项目是 TapTap Maker 时，规划双层 Git、game submodule、Maker API、云存储、Lua 模块、手机安全区、性能、预览与测试二维码。不要用于普通 Lua、Urho3D、Unity、Roblox、浏览器游戏或其他非 Maker 项目；未确认项目类型前不得加载本 skill 的 references。
+description: 仅用于已绑定的 TapTap Maker 项目，或用户明确说明当前或目标项目是 TapTap Maker 时，规划双层 Git、game submodule、Maker API、云存储、Lua 模块、手机安全区、性能、商店发布素材、预览与测试二维码。不要用于普通 Lua、Urho3D、Unity、Roblox、浏览器游戏或其他非 Maker 项目；未确认项目类型前不得加载本 skill 的 references。
 ---
 
 # TapTap Maker 开发工具包
@@ -27,6 +27,7 @@ description: 仅用于已绑定的 TapTap Maker 项目，或用户明确说明�
 确认是 Maker 项目后，只读取当前任务对应的文件：
 
 - 初始化、开发、预览、推送或二维码：[Maker 生命周期](references/maker-workflow.md)
+- 上架、商店资料、发布素材、图标、宣传图、截图或实机录屏：[发布素材](references/publish-assets.md)
 - 外层目录、素材流或 Git submodule：[双层目录](references/project-tree.md)
 - Maker API、示例、`clientCloud` 或 `serverCloud`：[API 与存储](references/taptap-api-priority.md)
 - Lua 模块、状态边界、代码可读性或手机 UI：[模块架构](references/module-architecture.md)
@@ -45,6 +46,7 @@ description: 仅用于已绑定的 TapTap Maker 项目，或用户明确说明�
 - 手机端整个 UI Layer 位于 `UI.SafeAreaView` 内并避开 TapTap 胶囊；只有 World Layer 可以铺满完整屏幕。
 - 性能优化必须先有可复现场景和基线。屏幕外默认不绘制，但客户端可见性不能决定服务端权威逻辑。
 - 发布预览和测试二维码只在 `game/` 上下文执行；Maker 发布流程负责同步、合并并推送内层仓库。
+- TapTap 商店发布素材位于外层 `publish/`；小游戏专用物料限制优先于更宽松的通用商店限制。
 
 ## 输出原则
 

@@ -23,6 +23,7 @@
 - 规划清晰、可维护的 Lua 模块结构
 - 约束移动端 UI 位于 `UI.SafeAreaView` 内
 - 优化大地图、对象更新和屏幕内渲染
+- 整理和验收 TapTap 商店发布素材的尺寸、体积、格式和数量
 - 规范设计、初始化、开发、预览发布和测试二维码流程
 
 本 Skill 不负责替代 TapTap 制造生成游戏主体，也不会对普通 Lua、Urho3D、Unity、Roblox 或浏览器游戏项目自动套用这些规则。
@@ -108,6 +109,7 @@ taptap-maker-kit/
     ├── module-architecture.md
     ├── performance.md
     ├── plan-template.md
+    ├── publish-assets.md
     ├── project-tree.md
     └── taptap-api-priority.md
 ```

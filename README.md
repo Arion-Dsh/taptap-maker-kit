@@ -31,29 +31,27 @@
 
 ## 安装
 
-macOS 或 Linux 一行安装：
+Windows、macOS 和 Linux 使用同一条命令安装：
 
 ```bash
-git clone https://github.com/Arion-Dsh/taptap-maker-kit.git && ./taptap-maker-kit/install.sh
+npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit
 ```
 
-该命令会克隆仓库，并通过符号链接安装到当前用户的 Codex、Cursor、Claude 和 Gemini skills 目录。
+安装器会把 Skill 复制到当前用户的 Codex、Cursor、Claude 和 Gemini skills 目录，不依赖 Bash 或符号链接。需要 Node.js 18 或更高版本。
 
 也可以只安装到一个编辑器：
 
 ```bash
-./install.sh --editor codex
+npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --editor codex
 ```
 
 安装到指定项目：
 
 ```bash
-./install.sh --scope project --target ../my-maker-project
+npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --scope project --target .
 ```
 
-运行 `./install.sh --help` 可查看全部参数。脚本不会覆盖已有文件或指向其他位置的同名链接；使用符号链接后，请不要随意移动本仓库。
-
-Windows 或不支持这些发现目录的编辑器，可以手动将整个仓库复制或链接到其 Agent Skills 目录，并保留目录名 `taptap-maker-kit`。
+安装器默认不会覆盖同名目录。更新已有安装时显式追加 `--force`；运行命令并追加 `--help` 可查看全部参数。
 
 常见的项目级目录包括：
 
@@ -85,7 +83,9 @@ taptap-maker-kit/
 ├── LICENSE
 ├── README.md
 ├── SKILL.md
-├── install.sh
+├── package.json
+├── scripts/
+│   └── install.mjs
 └── references/
     ├── maker-workflow.md
     ├── module-architecture.md

@@ -1,31 +1,31 @@
-# TapTap Maker Kit
+# TapTap 制造开发工具包
 
-面向 TapTap Maker 游戏项目的 Agent Skill，提供项目目录、模块边界、Maker API 使用、云存储、移动端适配、性能优化以及开发发布流程约束。
+面向 TapTap 制造游戏项目的 Agent Skill，提供项目目录、模块边界、TapTap 制造 API 使用、云存储、移动端适配、性能优化以及开发发布流程约束。
 
 ## 项目介绍
 
-`taptap-maker-kit` 是一套可供多种 AI 编辑器读取的 TapTap Maker 项目开发规则。它不替代 Maker 创建游戏主体，而是帮助 AI 在真实项目中保持一致的工程边界：先确认项目类型，再按任务读取必要规则，并优先依据当前 Maker 项目的托管说明、API 文档、类型声明和示例开展工作。
+`taptap-maker-kit` 是一套可供多种 AI 编辑器读取的 TapTap 制造项目开发规则。它不替代 TapTap 制造创建游戏主体，而是帮助 AI 在真实项目中保持一致的工程边界：先确认项目类型，再按任务读取必要规则，并优先依据当前 TapTap 制造项目的托管说明、API 文档、类型声明和示例开展工作。
 
-工具包围绕“游戏设计 → Maker 初始化 → 开发 → 预览发布 → 测试二维码”的完整流程组织，同时支持产品文档和原生素材位于外层仓库、Maker 生成的 `game/` 作为独立 Git submodule 管理的项目结构。
+工具包围绕“游戏设计 → TapTap 制造初始化 → 开发 → 预览发布 → 测试二维码”的完整流程组织，同时支持产品文档和原生素材位于外层仓库、TapTap 制造生成的 `game/` 作为独立 Git submodule 管理的项目结构。
 
 ## 示例项目
 
 | 游戏 | 玩法定位 | 工程参考重点 |
 | --- | --- | --- |
-| [鸡不可失](https://www.taptap.cn/app/919169) | 温馨治愈的养鸡经营游戏 | 产品资料与游戏工程分离、Maker API、`clientCloud`、移动端 UI 与性能优化 |
+| [鸡不可失](https://www.taptap.cn/app/919169) | 温馨治愈的养鸡经营游戏 | 产品资料与游戏工程分离、TapTap 制造 API、`clientCloud`、移动端 UI 与性能优化 |
 | [鲨鱼！放开我的鱼](https://www.taptap.cn/app/923487) | 多人在线、轻松又紧张的纸艺风钓鱼经营游戏 | 客户端与服务端职责、`serverCloud`、多人状态同步、世界对象分级更新与屏幕内渲染 |
 
 ## 能做什么
 
 - 规划产品资料仓库与 `game/` 内层仓库的边界
-- 约束 TapTap Maker API 的查证顺序，避免臆造接口
+- 约束 TapTap 制造 API 的查证顺序，避免臆造接口
 - 区分 `clientCloud` 与 `serverCloud` 的使用场景
 - 规划清晰、可维护的 Lua 模块结构
 - 约束移动端 UI 位于 `UI.SafeAreaView` 内
 - 优化大地图、对象更新和屏幕内渲染
 - 规范设计、初始化、开发、预览发布和测试二维码流程
 
-本 Skill 不负责替代 TapTap Maker 生成游戏主体，也不会对普通 Lua、Urho3D、Unity、Roblox 或浏览器游戏项目自动套用这些规则。
+本 Skill 不负责替代 TapTap 制造生成游戏主体，也不会对普通 Lua、Urho3D、Unity、Roblox 或浏览器游戏项目自动套用这些规则。
 
 ## 安装
 
@@ -70,15 +70,15 @@ npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap
 
 ## 使用
 
-在已绑定的 TapTap Maker 项目中直接描述任务；支持显式调用 Skill 的编辑器也可以使用 `taptap-maker-kit` 名称调用。
+在已绑定的 TapTap 制造项目中直接描述任务；支持显式调用 Skill 的编辑器也可以使用 `taptap-maker-kit` 名称调用。
 
 示例：
 
 ```text
-使用 taptap-maker-kit，为这个 TapTap Maker 项目规划模块结构和云存储边界。
+使用 taptap-maker-kit，为这个 TapTap 制造项目规划模块结构和云存储边界。
 ```
 
-Skill 会先轻量确认项目类型，再按任务读取必要的参考文件。非 TapTap Maker 项目不会加载完整规则集。
+Skill 会先轻量确认项目类型，再按任务读取必要的参考文件。非 TapTap 制造项目不会加载完整规则集。
 
 ## 目录
 
@@ -102,15 +102,15 @@ taptap-maker-kit/
 - `SKILL.md`：启用条件、按需路由和核心边界
 - `references/`：仅在相关任务中读取的详细规则
 
-## TapTap Maker 本地开发
+## TapTap 制造本地开发
 
-安装、初始化和本地开发以 [TapTap Maker 本地开发文档](https://maker.taptap.cn/docs/local-development) 为准。Maker 能力未安装时，Skill 会优先使用官方命令：
+安装、初始化和本地开发以 [TapTap 制造本地开发文档](https://maker.taptap.cn/docs/local-development) 为准。TapTap 制造能力未安装时，Skill 会优先使用官方命令：
 
 ```bash
 npx -y @taptap/maker install --ide codex,cursor,claude
 ```
 
-其他编辑器仅使用 TapTap Maker 官方支持的 `--ide` 标识，不自行假设兼容参数。
+其他编辑器仅使用 TapTap 制造官方支持的 `--ide` 标识，不自行假设兼容参数。
 
 ## 贡献
 
@@ -120,4 +120,4 @@ npx -y @taptap/maker install --ide codex,cursor,claude
 
 本项目采用 [MIT License](LICENSE)。
 
-本项目由个人维护，非 TapTap 官方项目。
+本项目由个人维护，非 TapTap 制造官方项目。

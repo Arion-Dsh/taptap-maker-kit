@@ -2,8 +2,6 @@
 
 面向 TapTap Maker 游戏项目的 Agent Skill，提供项目目录、模块边界、Maker API 使用、云存储、移动端适配、性能优化以及开发发布流程约束。
 
-这是社区维护项目，不是 TapTap 官方产品。
-
 ## 项目介绍
 
 `taptap-maker-kit` 是一套可供多种 AI 编辑器读取的 TapTap Maker 项目开发规则。它不替代 Maker 创建游戏主体，而是帮助 AI 在真实项目中保持一致的工程边界：先确认项目类型，再按任务读取必要规则，并优先依据当前 Maker 项目的托管说明、API 文档、类型声明和示例开展工作。
@@ -121,3 +119,5 @@ npx -y @taptap/maker install --ide codex,cursor,claude
 ## License
 
 本项目采用 [MIT License](LICENSE)。
+
+本项目由个人独立维护，非 TapTap 官方项目。

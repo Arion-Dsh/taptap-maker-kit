@@ -32,7 +32,29 @@
 
 ## 安装
 
-仓库根目录就是 Skill 根目录。将整个仓库克隆、复制或链接到编辑器支持的 Agent Skills 目录，并保留目录名 `taptap-maker-kit`。
+macOS 或 Linux 一行安装：
+
+```bash
+git clone git@github.com:Arion-Dsh/taptap-maker-kit.git && ./taptap-maker-kit/install.sh
+```
+
+该命令会克隆仓库，并通过符号链接安装到当前用户的 Codex、Cursor、Claude 和 Gemini skills 目录。需要提前配置 GitHub SSH 访问。
+
+也可以只安装到一个编辑器：
+
+```bash
+./install.sh --editor codex
+```
+
+安装到指定项目：
+
+```bash
+./install.sh --scope project --target ../my-maker-project
+```
+
+运行 `./install.sh --help` 可查看全部参数。脚本不会覆盖已有文件或指向其他位置的同名链接；使用符号链接后，请不要随意移动本仓库。
+
+Windows 或不支持这些发现目录的编辑器，可以手动将整个仓库复制或链接到其 Agent Skills 目录，并保留目录名 `taptap-maker-kit`。
 
 常见的项目级目录包括：
 
@@ -61,7 +83,10 @@ Skill 会先轻量确认项目类型，再按任务读取必要的参考文件�
 
 ```text
 taptap-maker-kit/
+├── LICENSE
+├── README.md
 ├── SKILL.md
+├── install.sh
 └── references/
     ├── maker-workflow.md
     ├── module-architecture.md
@@ -90,4 +115,4 @@ npx -y @taptap/maker install --ide codex,cursor,claude
 
 ## License
 
-开源许可证尚未指定。在许可证文件加入仓库前，默认保留全部权利。
+本项目采用 [MIT License](LICENSE)。

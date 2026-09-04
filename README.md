@@ -29,44 +29,37 @@
 
 ## 安装
 
-Windows、macOS 和 Linux 使用相同的安装命令，并可选择以下范围。
-
-### 当前用户公用
-
-安装到当前用户的编辑器 skills 目录，之后该用户的所有项目都可以发现：
-
-```bash
-npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit
-```
-
-这是默认范围，等同于显式指定 `--scope user`。
+使用通用的 [Skills CLI](https://www.skills.sh/docs/cli) 安装。它会识别仓库中的 `SKILL.md`，并让你选择当前环境支持的 AI 编辑器。
 
 ### 当前项目自用
 
-在目标项目根目录执行，只安装到该项目的编辑器 skills 目录：
+在目标项目根目录执行；这是默认范围：
 
 ```bash
-npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --scope project --target .
+npx skills@latest add Arion-Dsh/taptap-maker-kit
 ```
 
-也可以通过 `--target` 指定其他项目目录，或用 `--editor` 只安装到一个编辑器：
+### 当前用户公用
+
+添加 `-g`，安装后当前用户的所有项目都可以使用：
 
 ```bash
-npx -y --package=git+https://github.com/Arion-Dsh/taptap-maker-kit.git -- taptap-maker-kit --editor codex
+npx skills@latest add Arion-Dsh/taptap-maker-kit -g
 ```
 
-安装器会把 Skill 复制到相应目录，不依赖 Bash 或符号链接，需要 Node.js 18 或更高版本。默认不会覆盖同名目录；更新已有安装时显式追加 `--force`，追加 `--help` 可查看全部参数。
+指定编辑器并跳过交互确认：
 
-常见的项目级目录包括：
-
-```text
-.codex/skills/taptap-maker-kit/
-.cursor/skills/taptap-maker-kit/
-.claude/skills/taptap-maker-kit/
-.gemini/skills/taptap-maker-kit/
+```bash
+npx skills@latest add Arion-Dsh/taptap-maker-kit -a codex -y
 ```
 
-不同编辑器的发现目录和 Agent Skills 支持情况可能变化，请以对应编辑器的当前文档为准。
+更新已安装的版本：
+
+```bash
+npx skills@latest update taptap-maker-kit
+```
+
+Skills CLI 默认安装到当前项目；`-g` 切换为用户级安装。实际目录、链接或复制方式由 CLI 根据目标编辑器和用户选择处理，无需本仓库维护专用安装器。
 
 ## 使用
 
@@ -87,9 +80,6 @@ taptap-maker-kit/
 ├── LICENSE
 ├── README.md
 ├── SKILL.md
-├── package.json
-├── scripts/
-│   └── install.mjs
 └── references/
     ├── maker-workflow.md
     ├── module-architecture.md

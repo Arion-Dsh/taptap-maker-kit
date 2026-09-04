@@ -1,0 +1,12 @@
+{
+  "name": "taptap-maker-kit",
+  "displayName": "TapTap Maker Kit",
+  "description": "Project architecture and workflow guidance for TapTap Maker games.",
+  "author": {
+    "name": "Arion-Dsh",
+    "url": "https://github.com/Arion-Dsh"
+  },
+  "homepage": "https://github.com/Arion-Dsh/taptap-maker-kit",
+  "repository": "https://github.com/Arion-Dsh/taptap-maker-kit",
+  "license": "MIT"
+}

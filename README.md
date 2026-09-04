@@ -29,9 +29,11 @@
 
 ## 安装
 
+### 通用 Agent Skills
+
 使用通用的 [Skills CLI](https://www.skills.sh/docs/cli) 安装。它会识别仓库中的 `SKILL.md`，并让你选择当前环境支持的 AI 编辑器。
 
-### 当前项目自用
+#### 当前项目自用
 
 在目标项目根目录执行；这是默认范围：
 
@@ -39,7 +41,7 @@
 npx skills@latest add Arion-Dsh/taptap-maker-kit
 ```
 
-### 当前用户公用
+#### 当前用户公用
 
 添加 `-g`，安装后当前用户的所有项目都可以使用：
 
@@ -61,6 +63,24 @@ npx skills@latest update taptap-maker-kit
 
 Skills CLI 默认安装到当前项目；`-g` 切换为用户级安装。实际目录、链接或复制方式由 CLI 根据目标编辑器和用户选择处理，无需本仓库维护专用安装器。
 
+### Claude Code 插件
+
+终端安装（命令是 `claude plugin`，不是 `claude plugins`）：
+
+```bash
+claude plugin marketplace add https://github.com/Arion-Dsh/taptap-maker-kit.git
+claude plugin install taptap-maker-kit@arion-dsh
+```
+
+也可以在 Claude Code 会话中执行对应的交互式命令：
+
+```text
+/plugin marketplace add https://github.com/Arion-Dsh/taptap-maker-kit.git
+/plugin install taptap-maker-kit@arion-dsh
+```
+
+安装后可通过 `/taptap-maker-kit:taptap-maker-kit` 显式调用。若当前会话尚未加载插件，执行 `/reload-plugins` 或重新启动 Claude Code。
+
 ## 使用
 
 在已绑定的 TapTap 制造项目中直接描述任务；支持显式调用 Skill 的编辑器也可以使用 `taptap-maker-kit` 名称调用。
@@ -77,6 +97,9 @@ Skill 会先轻量确认项目类型，再按任务读取必要的参考文件�
 
 ```text
 taptap-maker-kit/
+├── .claude-plugin/
+│   ├── marketplace.json
+│   └── plugin.json
 ├── LICENSE
 ├── README.md
 ├── SKILL.md
@@ -91,6 +114,7 @@ taptap-maker-kit/
 
 - `SKILL.md`：启用条件、按需路由和核心边界
 - `references/`：仅在相关任务中读取的详细规则
+- `.claude-plugin/`：Claude Code 插件与 marketplace 元数据，不复制 Skill 内容
 
 ## TapTap 制造本地开发
 
@@ -104,7 +128,7 @@ npx -y @taptap/maker install --ide codex,cursor,claude
 
 ## 贡献
 
-修改规则时保持 `SKILL.md` 精简，将条件性细节放入对应 reference，并避免在多个文件重复同一约束。提交前至少检查 YAML frontmatter、相对链接、旧名称残留和编辑器专属内容。
+修改规则时保持 `SKILL.md` 精简，将条件性细节放入对应 reference，并避免在多个文件重复同一约束。提交前至少检查 YAML frontmatter、相对链接、旧名称残留，以及各编辑器元数据是否仍指向同一份 Skill 内容。
 
 ## License
 

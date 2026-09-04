@@ -1,0 +1,16 @@
+{
+  "name": "arion-dsh",
+  "owner": {
+    "name": "Arion-Dsh"
+  },
+  "plugins": [
+    {
+      "name": "taptap-maker-kit",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Arion-Dsh/taptap-maker-kit.git"
+      },
+      "description": "Project architecture and workflow guidance for TapTap Maker games."
+    }
+  ]
+}

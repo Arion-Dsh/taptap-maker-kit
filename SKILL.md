@@ -30,7 +30,7 @@ description: 仅用于已绑定的 TapTap Maker 项目，或用户明确说明�
 - 上架、商店资料、发布素材、图标、宣传图、截图或实机录屏：[发布素材](references/publish-assets.md)
 - 外层目录、素材流或 Git submodule：[双层目录](references/project-tree.md)
 - Maker API、示例、`clientCloud` 或 `serverCloud`：[API 与存储](references/taptap-api-priority.md)
-- Lua 模块、状态边界、代码可读性或手机 UI：[模块架构](references/module-architecture.md)
+- Lua 模块、状态边界、代码可读性、手机 UI 或玩家可见文案：[模块架构](references/module-architecture.md)
 - 卡顿、大地图、对象更新或屏幕内渲染：[性能](references/performance.md)
 - 用户要求完整架构方案时：[输出模板](references/plan-template.md)，再按涉及范围读取上述文件
 
@@ -44,8 +44,10 @@ description: 仅用于已绑定的 TapTap Maker 项目，或用户明确说明�
 - 不新增人类可读接口说明文件。机器契约只在已有实际消费者时保留。
 - 单机存档和单机异步全服榜使用 `clientCloud`；实时多人及服务端权威数据使用 `serverCloud`，同一数据不得双写。
 - 手机端整个 UI Layer 位于 `UI.SafeAreaView` 内并避开 TapTap 胶囊；只有 World Layer 可以铺满完整屏幕。
+- 玩家可见 UI 必须使用玩家视角、符合当前游戏世界和玩法的语言，不得出现研发、策划、配置、调试、接口或占位提示等内部工作语气。技术细节只进入日志或与正式 UI 隔离的开发调试界面。
 - 性能优化必须先有可复现场景和基线。屏幕外默认不绘制，但客户端可见性不能决定服务端权威逻辑。
-- 发布预览和测试二维码只在 `game/` 上下文执行；Maker 发布流程负责同步、合并并推送内层仓库。
+- 发布预览只在 `game/` 上下文执行；Maker 发布流程负责同步、合并并推送内层仓库。预览成功后只向用户返回可点击的预览链接，不主动打开预览页、浏览器或其他应用；只有用户明确要求打开时才执行打开操作。
+- 测试二维码不是发布预览的默认后续步骤。只有用户明确要求生成测试二维码时，才在 `game/` 上下文执行；不得因预览、构建、提交或推送成功而主动生成。
 - TapTap 商店发布素材位于外层 `publish/`；小游戏专用物料限制优先于更宽松的通用商店限制。
 
 ## 输出原则
